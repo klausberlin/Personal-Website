@@ -1,0 +1,58 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Pre-Browser')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendName('keywords', 'HTML,CSS,XML,JavaScript,PHP,Process Hypertext')
+            ->appendName('author', 'Pawel Klaus')
+            ->appendName('content', 'Personal Website')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('css/extension/extension.css'))
+        ?>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='//fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+            ->prependFile($this->basePath('js/main.js'))
+            ->prependFile($this->basePath('js/clipboard/dist/clipboard.min.js'))
+        ?>
+
+    </head>
+    <body>
+        <div id="content">
+
+            <?= $this->content ?>
+            <footer class="col-sm-12">
+                <hr>
+                <div class="text-center">
+                    <p>&copy;<?= date('Y') ?> Powered P.Klaus</p>
+                </div>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+
+    </body>
+</html>
+
+<script>
+ /*   $(document).ready(function() {
+        // get current URL path and assign 'active' class
+        var pathname = window.location.pathname;
+        $('.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+    })*/
+</script>

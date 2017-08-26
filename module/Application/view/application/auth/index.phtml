@@ -1,0 +1,61 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Pawel Klaus</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../#about">Home</a></li>
+                    <li><a href="../#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<?php
+$this->headTitle('Sign in');
+
+$form->get('username')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Hello Pawel, how are you?',
+    'autofocus' => true
+]);$this->headTitle('Sign in');
+
+$form->get('password')->setAttributes([
+    'class' => 'form-control',
+    'placeholder' => 'Pawel, please insert your key',
+    'autofocus' => true
+]);
+
+$form->get('submit')->setAttributes(['class' => 'btn btn-primary']);
+
+?>
+
+<?= $this->form()->openTag($form); ?>
+<div class="col-sm-offset-3 col-sm-12 col-md-6">
+<div class="form-group">
+    <?= $this->formLabel($form->get('username')); ?>
+    <?= $this->formElement($form->get('username')); ?>
+    <?= $this->formElementErrors($form->get('username')); ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($form->get('password')); ?>
+    <?= $this->formElement($form->get('password')); ?>
+    <?= $this->formElementErrors($form->get('password')); ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formElement($form->get('submit')); ?>
+</div>
+</div>
+<?= $this->form()->closeTag(); ?>
+
+

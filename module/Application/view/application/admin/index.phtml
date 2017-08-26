@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../#about">Pawel Klaus</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="<?= $this->url('blog')?>">Blog</a></li>
+                    <?php if($this->identity()== true):?>
+
+                        <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
+                        <?php print_r($this->identity());?>
+
+                    <?php endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<h1>Manage Posts</h1>
+
+<p>
+    <a class="btn btn-default" href="
+    <?= $this->url('admin', ['action'=>'add']); ?>">
+        New Post
+    </a>
+</p>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>ID</th>
+        <th>Post Title</th>
+        <th>Date Created</th>
+        <th>Actions</th>
+    </tr>
+
+    <?php foreach ($posts as $post): ?>
+
+        <tr>
+            <td><?= $this->escapeHtml($post->getId()); ?></td>
+            <td>
+                <a href="<?= $this->url('blog', ['action'=>'view', 'id'=>$post->getId()]); ?>">
+                    <?= $this->escapeHtml($post->getTitle()); ?>
+                </a>
+            </td>
+            <td><?= $this->escapeHtml($post->getDateCreated()); ?></td>
+
+            <td>
+                <a class="btn btn-info" href="<?= $this->url('admin',['action'=>'edit', 'id'=>$post->getId()]); ?>">
+                    <span class="glyphicon glyphicon-pencil" ></span> Edit
+                </a>
+                <a class="btn btn-danger" href="<?= $this->url('admin',['action'=>'delete', 'id'=>$post->getId()]); ?>">
+                    <span class="glyphicon glyphicon-remove"></span> Delete
+                </a>
+            </td>
+        </tr>
+
+    <?php endforeach; ?>
+
+</table>
+
+
+
+
+

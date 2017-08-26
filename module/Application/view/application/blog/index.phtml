@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../#about">Pawel Klaus</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+
+                    <?php if($this->identity()== true):?>
+                        <li class="pull-right"><a href="<?= $this->url('admin')?>">Admin</a></li>
+                        <?php print_r($this->identity());?>
+
+                    <?php endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <?php foreach($post as $post):?>
+    <div class="panel col-xs-12 col-sm-12 col-md-4">
+        <div class="panel-heading ">
+            <h3>
+                <a href="<?= $this->url('blog',['action'=>'view','id'=> $post->getId()]);?> ">
+                    <?= $this->escapeHtml($post->getTitle()); ?>
+                </a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <?= $this->escapeHtml(substr($post->getContent(),0,-50).".........................."); ?>
+            </p>
+        </div>
+        <div class="panel-footer">
+            <?= $this->escapeHtml(substr($post->getDateCreated(),0,-8)); ?>
+        </div>
+    </div>
+    <?php endforeach;?>
+
+
+</div>
