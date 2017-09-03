@@ -1,25 +1,22 @@
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Pawel Klaus</a>
         </div>
         <div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <ul class="nav navbar-nav">
-                        <li><a href="../#about">Home</a></li>
-                    </ul>
-                    <li><a href="<?= $this->url('blog')?>">Blog</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#skills">Skills</a></li>
+                    <li><a  style="color:white;background-image: -webkit-linear-gradient(top,#080808 0,#0f0f0f 100%); " href="<?= $this->url('blog')?>">Blog</a></li>
                     <?php if($this->identity()== true):?>
-
-                        <li><a href="<?= $this->url('admin')?>">Admin Panel</a></li>
+                        <li class="pull-right"><a href="/admin">Admin</a></li>
                         <?php print_r($this->identity());?>
-
                     <?php endif;?>
                 </ul>
             </div>
@@ -27,11 +24,23 @@
     </div>
 </nav>
 <div class="container">
-    <h1 class="text-center jumbotron">
-        <?= $this->escapeHtml($view->getTitle()); ?>
-    </h1>
-    
-    <p>
-        <?= $this->escapeHtml($view->getContent()); ?>
-    </p>
+    <h1 class="text-center post-title"><?= $this->escapeHtml($view->getTitle()); ?></h1>
+    <span class="col-xs-12 date-author"><?= $this->escapeHtml(substr($view->getDateCreated(),0,-8));?> / Pawel Klaus</span>
+    <div class="col-xs-2">
+        <a class="fb-xfbml-parse-ignore" title="Share this on facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmyberlincampus.de%2Fblog&amp;src=sdkpreparse"><span class="fa fa-facebook-official fa-3x"></span></a>
+    </div>
+    <div class="col-xs-10">
+        <p class="post-content"><?= $this->escapeHtml($view->getContent());?></p>
+    </div>
 </div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>

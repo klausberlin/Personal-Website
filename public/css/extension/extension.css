@@ -130,16 +130,61 @@
 
 /*NAVBAR*/
 li{
-    font-family: 'Audiowide';
+    /*font-family: 'Audiowide';*/
     font-size: 22px;
+    text-transform: uppercase;
+    padding: 14px 0 12px;
+    line-height: 22px;
+    color: #444;
 }
 
 #zitat{
     font-family: "Franklin Gothic Book";
 }
 
-/**/
-
-
 #about {padding-top:50px;height:700px;color: #111111; background-color: #fff;}
 #skills {padding-top:50px;height:1000px;color: #fff; background-color: #C6B5B2;}
+
+.article-title {
+    cursor: pointer;
+    color:#E52F26;
+    font-family: "DIN Next W02 Cond", "Arial Condensed", Arial, sans-serif;
+    font-size: 28pt;
+    font-weight: 100;
+    letter-spacing: -0.35pt;
+    line-height: 1.0;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.article-content{
+    color: #333;
+    font-size: 2.12rem;
+    line-height: 1.5;
+    font-family: "FF Meta Serif W01",serif;
+}
+
+.date-author{
+    font-size: 1.5rem;
+    color:#aaa;
+}
+
+.post-title{
+    font-size: 76px;
+    color: #333;
+    font-weight: 500;
+    font-family: "DIN Next W04",sans-serif;
+}
+
+.post-content{
+    color: #333;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: "FF Meta Serif W01",serif
+}
+
+.footer-article{
+    text-align: center;
+    cursor: pointer;
+    color:#E52F26;
+}

@@ -12,4 +12,27 @@
  */
 
 return [
+    'doctrine' => [
+        'connection' => [
+            //default connection
+            'orm_default' => [
+                //class name to use as a driver to the database
+                'driverClass' => PDOMySqlDriver::class,
+                //connection params
+                'params' => [
+                    'host'     => 'localhost',
+                    'user'     => '',
+                    'password' => '',
+                    'dbname'   => ''
+                ]
+            ],
+        ],
+    ],
+    'db' => [
+        'driver' => 'pdo',
+        'dsn' => 'mysql:dbname=pawel;host=localhost;charset=utf8',
+        'user' => '',
+        'pass' => ''
+    ]
 ];
+
