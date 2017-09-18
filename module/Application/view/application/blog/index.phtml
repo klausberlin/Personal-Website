@@ -35,7 +35,7 @@
             <div class="panel-body">
                 <p class="article-content">
                     <?php $explodeString = explode('.',$posts->getContent());
-                        print_r($this->escapeHtml($explodeString[0]).'.');
+                        print_r(html_entity_decode($explodeString[0]).'.');
                     ?>
                 </p>
             </div>

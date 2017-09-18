@@ -30,7 +30,7 @@
         <a class="fb-xfbml-parse-ignore" title="Share this on facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmyberlincampus.de%2Fblog&amp;src=sdkpreparse"><span class="fa fa-facebook-official fa-3x"></span></a>
     </div>
     <div class="col-xs-10">
-        <p class="post-content"><?= $this->escapeHtml($view->getContent());?></p>
+        <p class="post-content"><?= html_entity_decode($view->getContent());?></p>
     </div>
 </div>
 
@@ -39,7 +39,8 @@
 <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));

@@ -32,7 +32,7 @@ class AuthenticationServiceFactory
             'user',
             'username',
             'password',
-            "MD5(?)"
+            "SHA1(?)"
         );
 
         // Instantiate the AuthManager service and inject dependencies to its constructor.
