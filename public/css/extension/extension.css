@@ -133,7 +133,7 @@ li{
     /*font-family: 'Audiowide';*/
     font-size: 22px;
     text-transform: uppercase;
-    padding: 14px 0 12px;
+    padding: 4px 0 2px;
     line-height: 22px;
     color: #444;
 }
@@ -188,4 +188,25 @@ li{
     text-align: center;
     cursor: pointer;
     color:#E52F26;
+}
+
+/*
+START - blog/index
+*/
+#effect{
+
+    /* We first create a flex layout context */
+    display: flex;
+
+    /* Then we define the flow direction
+       and if we allow the items to wrap
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: row wrap;
+
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+
 }

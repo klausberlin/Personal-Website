@@ -8,10 +8,10 @@
             </button>
         </div>
         <div>
-            <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/#about">About</a></li>
-                    <li><a href="/#skills">Skills</a></li>
+                    <li><a href="/#skills">Me</a></li>
                     <li><a  style="color:white; background-image: -webkit-linear-gradient(top,#080808 0,#0f0f0f 100%);" href="<?= $this->url('blog')?>">Blog</a></li>
                     <?php if($this->identity()== true):?>
                         <li class="pull-right"><a href="/admin">Admin</a></li>
@@ -25,23 +25,32 @@
 </nav>
 
 <div class="container" id="effect">
+    <?php $i=0;?>
     <?php foreach($post as $posts):?>
-        <div class="panel col-xs-12 col-sm-12 col-md-4">
-            <div class="panel-heading" onclick="window.location='<?= $this->url('blog',['action'=>'view','id'=> $posts->getId()]);?>'">
+
+        <div class="panel col-xs-12 col-sm-12 col-md-4 panel-move">
+            <div class="panel-heading panel" onclick="window.location='<?= $this->url('blog',['action'=>'view','id'=> $posts->getId()]);?>'">
                 <h3>
                     <p class="article-title"><?= $this->escapeHtml($posts->getTitle());?></p>
                 </h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body panel2">
                 <p class="article-content">
                     <?php $explodeString = explode('.',$posts->getContent());
-                        print_r(html_entity_decode($explodeString[0]).'.');
+                        print_r( html_entity_decode($explodeString[0]).'.');
                     ?>
                 </p>
             </div>
-            <div class="footer-article" onclick="window.location='<?= $this->url('blog',['action'=>'view','id'=> $posts->getId()]);?>'">
+            <div class="footer-article panel3" onclick="window.location='<?= $this->url('blog',['action'=>'view','id'=> $posts->getId()]);?>'">
                 <p class="button-footer">MORE<i class="fa fa-long-arrow-right" aria-hidden="true"></i></p>
             </div>
         </div>
     <?php endforeach;?>
 </div>
+
+
+<script>
+
+    TweenMax.staggerFrom('.panel-move' ,1/*speed*/, {opacity:0,scale:.5,y:-80}, .1);
+
+</script>

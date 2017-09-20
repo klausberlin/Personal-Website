@@ -91,15 +91,15 @@ class BlogForm extends Form
         $inputFilter->add([
                 'name' => 'content',
                 'required' => true,
-                'filters' => [
-                    ['name' => 'StripTags'],
-                ],
+//                'filters' => [
+//                    ['name' => 'StripTags'],
+//                ],
                 'validators' => [
                     [
                         'name'    => 'StringLength',
                         'options' => [
                             'min' => 1,
-                            'max' => 4096
+                            'max' => 40096
                         ],
                     ],
                 ],

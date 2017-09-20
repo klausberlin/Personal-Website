@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#skills">Me</a></li>
                     <li><a href="<?= $this->url('blog')?>">Blog</a></li>
                     <?php if($this->identity()== true):?>
                         <li class="pull-right"><a href="/admin">Admin</a></li>
@@ -39,59 +39,35 @@
             Contact Me
         </span>
         <span class="btn-email" data-clipboard-target=".email">
-            <span class="email" data-toggle="tooltip" title="Click to contact me">pawelklaus@hotmail.de</span>
+            <span class="email" data-toggle="tooltip" >pawelklaus@hotmail.de</span>
         </span>
     </div>
 </div>
 
 <div id="skills">
     <div class="container">
-        <h2 class="about text-center">Skills</h2>
-        <canvas id="personal-skills-pie" width="770" height="385" style=""></canvas>
+        <h2 class="about text-center">About</h2>
+        <p class="text-center text-capitalize">
+            Warmly welcome on my website. My name is Pawel and I am a junior web developer based in Berlin.
+            I have a passion for web development and sports.
+            If you are interested about what I am doing just go on my blog or for any other questions just contact me.
+        </p>
     </div>
 </div>
 <script>
     $(document).ready(function(){
 
-        new Chart(document.getElementById("personal-skills-pie"),
-                {
-                "type":"pie",
-                "data":
-                    {
-                        "labels":[
-                            "PHP","HTML","Javascript","CSS"
-                        ],
-                        "datasets":[
-                            {
-                                "label":"skills",
-                                "data":[
-                                   70,60,50,60
-                                ],
-                                "backgroundColor":[
-                                    "rgb(149, 111, 221)","rgb(198, 85, 83)","rgb(255, 205, 86)","rgb(42, 72, 198)"
-                                ]
-                            }
-                        ]
-                    },
-                    options: {
-                        legend: {
-                            display: true,
-                            labels: {
-                                fontColor: 'rgb(255, 255, 255)'
-                            }
-                        }
-                    }
-                }
-            );
+        var timeline = new TimelineLite();
+        timeline.from('.name',.5,{scale:0});
+        timeline.from('.status',.5,{opacity:0, scale:2});
+        timeline.from('#sendemail',.5,{scale:0});
+
 
         $('#sendemail').click(function (event) {
             window.location.href = "mailto:pawelklaus@hotmail.de.com?subject=I want to know more about you&body= ";
 
         });
 
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
         new Clipboard('.btn-email');
 
         // Add scrollspy to <body>

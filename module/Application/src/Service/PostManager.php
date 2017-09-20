@@ -29,7 +29,7 @@ class PostManager
         // Create new Post entity.
         $post = new Post();
         $post->setTitle($data['title']);
-        $post->setContent($data['content']);
+        $post->setContent(htmlspecialchars($data['content']));
         $post->setStatus(2);
         $post->setDateCreated(date("Y-m-d h:i:sa"));
 
