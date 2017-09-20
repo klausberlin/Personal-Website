@@ -79,6 +79,8 @@ class AdminController extends AbstractActionController
 
             if($form->isValid()){
                 $this->postManager->addNewPost($data);
+
+                return $this->redirect()->toRoute('admin',['action' => 'index']);
             }
 
 
@@ -128,7 +130,7 @@ class AdminController extends AbstractActionController
 
             $data = [
                 'title' => $repo->getTitle(),
-                'content' => $repo->getContent()
+                'content' => html_entity_decode($repo->getContent())
             ];
 
             $form->setData($data);
