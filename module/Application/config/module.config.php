@@ -46,7 +46,7 @@ return [
             'login' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/lostandfound[/:action[/:id]]',
+                    'route'    => '/echome[/:action[/:id]]',
                     'defaults' => [
                         'controller' => Controller\AuthController::class,
                         'action'     => 'index',
