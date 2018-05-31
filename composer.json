@@ -26,7 +26,6 @@
         "zendframework/zend-filter": "^2.7",
         "zendframework/zend-form": "^2.7",
         "zendframework/zend-db": "^2.8"
-
     },
     "autoload": {
         "psr-4": {

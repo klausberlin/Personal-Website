@@ -53,6 +53,17 @@ $form->get('submit-post')->setAttributes(['class'=>'btn btn-primary','href'=>'..
         toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
 //        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
 //        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+        setup: function(editor) {
+            editor.addButton('picture', {
+                type: 'menubutton',
+                text: 'picture',
+                icon: false,
+                menu: [
+                    {text: 'left', onclick: function() {editor.insertContent('<img class="img-responsive pull-left"> </img>');}},
+                    {text: 'right', onclick: function() {editor.insertContent('<img class="img-responsive pull-right"> </img>');}}
+                ]
+            });
+        },
         content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//www.tinymce.com/css/codepen.min.css'],

@@ -42,7 +42,7 @@ class AuthManager
      * Performs a login attempt. If $rememberMe argument is true, it forces the session
      * to last for one month (otherwise the session expires on one hour).
      */
-    public function login($username, $password)
+    public function lostandfound($username, $password)
     {
         // Check if user has already logged in. If so, do not allow to log in
         // twice.

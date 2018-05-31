@@ -25,40 +25,42 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $form = new Form\ContactForm();
+//        $form = new Form\ContactForm();
         // Check if user has submitted the form
-        if ($this->getRequest()->isPost()) {
-
-            // Fill in the form with POST data
-            $data = $this->params()->fromPost();
-            $form->setData($data);
-
-            // Validate form
-            if ($form->isValid()) {
-
-                // Get filtered and validated data
-                $data = $form->getData();
-                //save data
-                $email = $data['email'];
-                $subject = $data['subject'];
-                $body = $data['body'];
-
-                // Send E-mail
-                if (!$this->mailSender->sendMail('pawelklaus@hotmail.de', $email,
-                    $subject, $body)
-                ) {
-                    // In case of error, redirect to "Error Sending Email" page
-                    return $this->redirect()->toRoute('application',
-                        ['action' => 'sendError']);
-                }
-
-                // Redirect to "ThankYou" page
-                return $this->redirect()->toRoute('application',
-                    ['action' => 'thankYou']);
-            }
-        }
+//        if ($this->getRequest()->isPost()) {
+//
+//            // Fill in the form with POST data
+//            $data = $this->params()->fromPost();
+//            $form->setData($data);
+//
+//            // Validate form
+//            if ($form->isValid()) {
+//
+//                // Get filtered and validated data
+//                $data = $form->getData();
+//                //save data
+//                $email = $data['email'];
+//                $subject = $data['subject'];
+//                $body = $data['body'];
+//
+//                // Send E-mail
+//                if (!$this->mailSender->sendMail('pawelklaus@hotmail.de', $email,
+//                    $subject, $body)
+//                ) {
+//                    // In case of error, redirect to "Error Sending Email" page
+//                    return $this->redirect()->toRoute('application',
+//                        ['action' => 'sendError']);
+//                }
+//
+//                // Redirect to "ThankYou" page
+//                return $this->redirect()->toRoute('application',
+//                    ['action' => 'thankYou']);
+//            }
+//        }
         return new ViewModel([
-            'form' => $form,
+//            'form' => $form,
+            'inumr' => 'https://www.inumr.com/account/signin'
+
         ]);
     }
 

@@ -18,7 +18,6 @@ class PostManager
     */
     private $entityManager;
 
-
     public function __construct($entityManager)
     {
         $this->entityManager = $entityManager;
@@ -55,7 +54,6 @@ class PostManager
         $post->setContent($data['content']);
 
         $this->entityManager->flush();
-
 
     }
 }

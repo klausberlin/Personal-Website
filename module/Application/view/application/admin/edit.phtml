@@ -49,13 +49,21 @@ $form->get('submit-post')->setAttributes(['class'=>'btn btn-primary','href'=>'..
             "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
         ],
 
-        toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+        toolbar1: "image fullpage | bold italic underline strikethrough | mybutton | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
 //        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
 //        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
         content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//www.tinymce.com/css/codepen.min.css'],
-
+        setup: function(ed) {
+            ed.addButton('mybutton', {
+                    title: 'My button',
+                    label: 'My Button',
+                    onclick: function () {
+                        ed.selection.setContent("<img class='img-responsive'>test pic</img>");
+                    }
+                });
+        },
         menubar: true,
         toolbar_items_size: 'small'
     });
