@@ -11,6 +11,8 @@
  * credentials from accidentally being committed into version control.
  */
 
+use Doctrine\DBAL\Driver\PDOMySql\Driver as PDOMySqlDriver;
+
 return [
     'doctrine' => [
         'connection' => [
@@ -30,7 +32,7 @@ return [
     ],
     'db' => [
         'driver' => 'pdo',
-        'dsn' => 'mysql:dbname=pawel;host=localhost;charset=utf8',
+        'dsn' => 'mysql:dbname=;host=localhost;charset=utf8',
         'user' => '',
         'pass' => ''
     ]
