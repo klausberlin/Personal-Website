@@ -15,7 +15,6 @@ use Zend\Crypt\Password\Bcrypt;
 
 class AuthAdapter implements AdapterInterface
 {
-
     /**
      * User username.
      * @var string
@@ -77,7 +76,7 @@ class AuthAdapter implements AdapterInterface
 
         // If the user with such email exists, we need to check if it is active or retired.
         // Do not allow retired users to log in.
-        if ($user->getStatus()==User::STATUS_RETIRED) {
+        if ($user->getStatus() == User::STATUS_RETIRED) {
             return new Result(
                 Result::FAILURE,
                 null,

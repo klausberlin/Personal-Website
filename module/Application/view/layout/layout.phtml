@@ -15,52 +15,62 @@
 
         <?=
         $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-            ->prependStylesheet($this->basePath('vendor/bootstrap/css/bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/extension/extension.css'))
             ->prependStylesheet($this->basePath('css/creative.css'))
-            ->prependStylesheet($this->basePath('vendor/magnific-popup/magnific-popup.css'))
+
         ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-                <!-- Scripts -->
-        <?php
-
-//        echo $this->headScript()
-//            ->prependFile($this->basePath('libs/jquery/jquery.min.js'))
-//            ->prependFile($this->basePath('libs/bootstrap/js/bootstrap.bundle.min.js'))
-//
-//            ->prependFile($this->basePath('libs/jquery-easing/jquery.easing.min.js'))
-//            ->prependFile($this->basePath('libs/scrollreveal/scrollreveal.min.js'))
-//            ->prependFile($this->basePath('libs/magnific-popup/jquery.magnific-popup.min.js'))
-//            ->prependFile($this->basePath('js/creative.min.js'))
-        ?>
 
     </head>
-
-            <?= $this->content ?>
-            <footer class="col-sm-12">
-                <hr>
-                <div class="text-center">
-                    <p>&copy;<?= date('Y') ?> Powered P.Klaus</p>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Pawel Klaus</a>
                 </div>
-            </footer>
-        </div>
+                <div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?= $this->url('blog')?>">Blog</a></li>
+                            <?php if($this->identity()== true):?>
+                                <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
+                                <?php print_r($this->identity());?>
+                            <?php endif;?>
+                            <?php if($this->identity()== true):?>
+                                <li class="pull-right"><a href="/admin">Admin</a></li>
+                                <?php print_r($this->identity());?>
+                            <?php endif;?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <?= $this->content ?>
+
+        <footer class="col-sm-12">
+            <hr>
+            <div class="text-center">
+                <p>&copy;<?= date('Y') ?> Powered P.Klaus</p>
+            </div>
+        </footer>
+
         <!-- Bootstrap core JavaScript -->
-        <script src="/vendor/jquery/jquery.min.js"></script>
-        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Plugin JavaScript -->
-        <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
-        <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-        <!-- Custom scripts for this template -->
-        <script src="js/creative.js"></script>
+        <script src="/js/jquery-3.1.0.min.js"></script>
+        <script src="/js/bootstrap.js"></script>
 
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
         <?= $this->inlineScript() ?>
 
     </body>
+
 </html>

@@ -1,33 +1,9 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="/#about">Home</a></li>
-                    <li><a href="/#skills">Details</a></li>
-                    <li><a  style="color:white; background-image: -webkit-linear-gradient(top,#080808 0,#0f0f0f 100%);" href="<?= $this->url('blog')?>">Blog</a></li>
-
-
-                    <?php if($this->identity()== true):?>
-                        <li class="pull-right"><a href="/admin">Admin</a></li>
-                        <?php print_r($this->identity());?>
-                    <?php endif;?>
-
-                </ul>
-            </div>
-        </div>
-
+        <h1>Blog</h1>
     </div>
-</nav>
-
-<div class="container" id="effect">
+</div>
     <?php $i=0;?>
     <?php foreach($post as $posts):?>
 
@@ -49,7 +25,6 @@
             </div>
         </div>
     <?php endforeach;?>
-</div>
 
 
 <script>
