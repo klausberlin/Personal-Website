@@ -59,14 +59,18 @@ class IndexController extends AbstractActionController
 //        }
         return new ViewModel([
 //            'form' => $form,
-            'inumr' => 'https://www.inumr.com/account/signin'
-
         ]);
     }
 
     // This action displays the Thank You page. The user is redirected to this
     // page on successful mail delivery.
     public function thankYouAction()
+    {
+        return new ViewModel();
+    }
+
+
+    public function aboutAction()
     {
         return new ViewModel();
     }

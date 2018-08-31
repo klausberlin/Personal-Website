@@ -17,12 +17,13 @@
         $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/extension/extension.css'))
-            ->prependStylesheet($this->basePath('css/creative.css'))
 
         ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 
     </head>
     <body>
@@ -39,23 +40,30 @@
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
+
                             <li><a href="<?= $this->url('blog')?>">Blog</a></li>
+
+                            <li><a href="<?= $this->url('about')?>">About</a></li>
+
                             <?php if($this->identity()== true):?>
                                 <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
-                                <?php print_r($this->identity());?>
+                                <?php //print_r($this->identity());?>
                             <?php endif;?>
+
                             <?php if($this->identity()== true):?>
                                 <li class="pull-right"><a href="/admin">Admin</a></li>
-                                <?php print_r($this->identity());?>
+                                <?php // print_r($this->identity());?>
                             <?php endif;?>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-
-        <?= $this->content ?>
-
+        <div class="placeholder"></div>
+        <div class="container-fluid" id="vueStart">
+            <?= $this->content ?>
+        </div>
         <footer class="col-sm-12">
             <hr>
             <div class="text-center">
@@ -64,8 +72,14 @@
         </footer>
 
         <!-- Bootstrap core JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <!-- Add this after vue.js -->
+        <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+
         <script src="/js/jquery-3.1.0.min.js"></script>
         <script src="/js/bootstrap.js"></script>
+        <script src="/js/main/vueDefinition.js"></script>
 
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 

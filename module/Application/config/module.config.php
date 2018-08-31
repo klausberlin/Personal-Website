@@ -18,7 +18,6 @@ use Application\Service\PostManager;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\FactoryInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -40,6 +39,16 @@ return [
                     'route'    => '/application[/:action]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
+                    ],
+                ],
+            ],
+            'about' => [
+                'type'    => Literal::class,
+                'options' => [
+                    'route'    => '/about',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'about',
                     ],
                 ],
             ],
