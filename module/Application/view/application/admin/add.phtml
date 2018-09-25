@@ -16,7 +16,7 @@ $form->get('content')->setAttributes([
 
 $form->get('submit-post')->setAttributes(['class'=>'btn btn-primary','href'=>'..']);
 ?>
-<div class="container"
+<div class="container">
     <div class="row">
         <div class="col-xs-12">
             <?= $this->form()->openTag($form); ?>
@@ -41,34 +41,37 @@ $form->get('submit-post')->setAttributes(['class'=>'btn btn-primary','href'=>'..
 </div>
 
 <script>
-    tinymce.init({
-        selector: "textarea",
-        height: 500,
-        plugins: [
-            "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-            "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
-        ],
 
-        toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
-//        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
-//        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
-        setup: function(editor) {
-            editor.addButton('picture', {
-                type: 'menubutton',
-                text: 'picture',
-                icon: false,
-                menu: [
-                    {text: 'left', onclick: function() {editor.insertContent('<img class="img-responsive pull-left"> </img>');}},
-                    {text: 'right', onclick: function() {editor.insertContent('<img class="img-responsive pull-right"> </img>');}}
-                ]
-            });
-        },
-        content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-            '//www.tinymce.com/css/codepen.min.css'],
+    $(function(){
+        tinymce.init({
+            selector: "textarea",
+            height: 500,
+            plugins: [
+                "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
+            ],
 
-        menubar: true,
-        toolbar_items_size: 'small'
+            toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+    //        toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+    //        toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+            setup: function(editor) {
+                editor.addButton('picture', {
+                    type: 'menubutton',
+                    text: 'picture',
+                    icon: false,
+                    menu: [
+                        {text: 'left', onclick: function() {editor.insertContent('<img class="img-responsive pull-left"> </img>');}},
+                        {text: 'right', onclick: function() {editor.insertContent('<img class="img-responsive pull-right"> </img>');}}
+                    ]
+                });
+            },
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'],
+
+            menubar: true,
+            toolbar_items_size: 'small'
+        });
     });
 </script>
