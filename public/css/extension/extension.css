@@ -108,16 +108,9 @@ START - blog/index
 }
 
 .jumbotron-pic {
-    background-image: url(../../img/title.jpg);
+    background-image: url(../../img/together.jpg);
     background-size: cover;
     height: 100%;
-    padding-top: 140px;
-}
-.blog-pic {
-    background-image: url(../../img/blog.jpg);
-    background-size: cover;
-    height: 100%;
-    width: 100%;
     padding-top: 140px;
 }
 
