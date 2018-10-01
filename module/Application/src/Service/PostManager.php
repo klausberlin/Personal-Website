@@ -30,7 +30,7 @@ class PostManager
         $post->setTitle($data['title']);
         $post->setContent(htmlspecialchars($data['content']));
         $post->setStatus(2);
-        $post->setDateCreated(date("Y-m-d h:i:sa"));
+        $post->setDateCreated(date('Y-m-d H:i:s'));
 
         // Add the entity to entity manager.
         $this->entityManager->persist($post);
