@@ -30,7 +30,7 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -45,7 +45,7 @@
 
                             <li <?= ( $this->url() === '/blog' ? 'class="active"' : '') ?> ><a href="<?= $this->url('blog')?>">Blog</a></li>
 
-                            <li <?= ( $this->url() === '/about' ? 'class="active"' : '') ?>><a href="<?= $this->url('about')?>">About</a></li>
+<!--                            <li <?php ////( $this->url() === '/about' ? 'class="active"' : '') ?><a href="--><?php //// $this->url('about')?><!--">About</a></li>-->
 
                             <?php if($this->identity()== true):?>
                                 <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
@@ -65,7 +65,7 @@
 
         <div class="placeholder"></div>
 
-        <div class="container-fluid mobile-container">
+        <div class="container-fluid">
             <?= $this->content ?>
         </div>
 
