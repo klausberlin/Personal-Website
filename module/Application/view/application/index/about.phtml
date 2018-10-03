@@ -1,0 +1,36 @@
+<div class="jumbotron jumbotron-pic row">
+    <h1 class="text-center" style="color: #fff">Open Source Code</h1>
+    <div class="cleaner"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <?php foreach($myRepos as $repos):?>
+            <div class='col-xs-12 col-sm-4'>
+                <div class="panel panel-default">
+                    <div class="page-header">
+                        <h3 class="text-center" ><a href="<?= $repos->html_url ?>" target="_blank" style="color: #E52F26"><?= $repos->name?></a></h3>
+                        <div class="row">
+                        <div class="col-xs-4"><?= ($repos->language == 'PHP' ? '<i class="fab fa-php fa-3x" style="color:#7700ff;"></i>' :  $repos->language )?></div>
+                        <div class="col-xs-4"><i class="far fa-clock"></i> <?= date( 'M.Y',strtotime($repos->created_at))?></div>
+                        <div class="col-xs-4"><i class="fas fa-code-branch"></i> <?= $repos->forks_count ?></div>
+                        </div>
+                    </div>
+                    <div class="page-body">
+                        <h4 class="text-center"><?= $repos->description?></h4>
+                    </div>
+                </div>
+            </div>
+
+
+        <?php endforeach;?>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<?php //var_dump($myRepos);?>

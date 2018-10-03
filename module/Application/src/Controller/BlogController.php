@@ -9,6 +9,7 @@ namespace Application\Controller;
 
 
 use Application\Entity\Post;
+use Application\Service\GithubManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -20,6 +21,7 @@ class BlogController extends AbstractActionController
     */
     private $entityManager;
 
+
     //constructor method which is used to inject the Doctrine entity manager
     public function __construct($entityManager)
     {
@@ -30,7 +32,9 @@ class BlogController extends AbstractActionController
     {
         $post = $this->entityManager->getRepository(Post::class)->findBy(
             ['status'=> Post::STATUS_PUBLISHED ],
-            ['dateCreated'=>'DESC'], 50);
+            ['dateCreated'=>'DESC'],
+            50);
+
 
         return new ViewModel([
             'post' => $post,

@@ -8,57 +8,25 @@
 namespace Application\Controller;
 
 
-use Application\Form;
+use Application\Service\GithubManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Service\MailSender;
 
 class IndexController extends AbstractActionController
 {
 
-    private $mailSender;
+    private $githubData;
 
-    public function __construct(MailSender $mail)
+    public function __construct()
     {
-        $this->mailSender = $mail;
+
+        $this->githubData = new GithubManager();
+
     }
 
     public function indexAction()
     {
-//        $form = new Form\ContactForm();
-        // Check if user has submitted the form
-//        if ($this->getRequest()->isPost()) {
-//
-//            // Fill in the form with POST data
-//            $data = $this->params()->fromPost();
-//            $form->setData($data);
-//
-//            // Validate form
-//            if ($form->isValid()) {
-//
-//                // Get filtered and validated data
-//                $data = $form->getData();
-//                //save data
-//                $email = $data['email'];
-//                $subject = $data['subject'];
-//                $body = $data['body'];
-//
-//                // Send E-mail
-//                if (!$this->mailSender->sendMail('pawelklaus@hotmail.de', $email,
-//                    $subject, $body)
-//                ) {
-//                    // In case of error, redirect to "Error Sending Email" page
-//                    return $this->redirect()->toRoute('application',
-//                        ['action' => 'sendError']);
-//                }
-//
-//                // Redirect to "ThankYou" page
-//                return $this->redirect()->toRoute('application',
-//                    ['action' => 'thankYou']);
-//            }
-//        }
         return new ViewModel([
-//            'form' => $form,
         ]);
     }
 
@@ -72,7 +40,11 @@ class IndexController extends AbstractActionController
 
     public function aboutAction()
     {
-        return new ViewModel();
+
+        $myRepos = $this->githubData->getMyRepos();
+        return new ViewModel([
+            'myRepos' => json_decode($myRepos),
+        ]);
     }
 
     // This action displays the Send Error page. The user is redirected to this
