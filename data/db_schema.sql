@@ -13,15 +13,12 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` smallint(11) unsigned NOT NULL AUTO_INCREMENT,
   `registered` datetime DEFAULT NULL,
-  `email` varchar(128) DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL,
-  `date_created` datetime NOT NULL,
+  `date_created` datetime DEFAULT NULL,
   `pwd_reset_token` varchar(32) DEFAULT NULL,
   `pwd_reset_token_creation_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email_idx` (`email`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 
