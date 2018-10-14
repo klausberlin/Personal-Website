@@ -51,6 +51,7 @@ class AuthManager
         }*/
 
         // Authenticate with login/password.
+
         /**  @var DbTable $authAdapter*/
         $authAdapter = $this->authService->getAdapter();
 
@@ -58,6 +59,8 @@ class AuthManager
         $authAdapter->setCredential($password);
 
         $result = $this->authService->authenticate();
+
+
         // If user wants to "remember him", we will make session to expire in
         // one month. By default session expires in 1 hour (as specified in our
         // config/global.php file).
@@ -71,6 +74,7 @@ class AuthManager
 
     /**
      * Performs user logout.
+     * @throws \Exception
      */
     public function logout()
     {

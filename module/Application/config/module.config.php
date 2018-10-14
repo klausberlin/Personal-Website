@@ -72,6 +72,20 @@ return [
                     ],
                 ],
             ],
+            'users' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/users[/:action[/:id]]',
+                    'constraints' => [
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[a-zA-Z0-9_-]*',
+                    ],
+                    'defaults' => [
+                        'controller'    => Controller\UserController::class,
+                        'action'        => 'index',
+                    ],
+                ],
+            ],
             'blog' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -82,15 +96,36 @@ return [
                     ],
                 ],
             ],
+            'set-password' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/set-password',
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'setPassword',
+                    ],
+                ],
+            ],
         ],
     ],
-
+    'access_filter' => [
+        'controllers' => [
+            Controller\UserController::class => [
+                // Give access to "resetPassword", "message" and "setPassword" actions
+                // to anyone.
+                ['actions' => ['resetPassword', 'message', 'setPassword'], 'allow' => '*'],
+                // Give access to "index", "add", "edit", "view", "changePassword" actions to authorized users only.
+                ['actions' => ['index', 'add', 'edit', 'view', 'changePassword'], 'allow' => '@']
+            ],
+        ]
+    ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class,
             Controller\AuthController::class => AuthControllerFactory::class,
             Controller\BlogController::class => BlogControllerFactory::class,
             Controller\AdminController::class => \Application\Controller\Factory\AdminControllerFactory::class,
+            Controller\UserController::class => Controller\Factory\UserControllerFactory::class,
 
         ],
     ],
@@ -101,8 +136,10 @@ return [
             \Zend\Authentication\AuthenticationService::class => Service\Factory\AuthenticationServiceFactory::class,
             AuthManager::class => AuthManagerFactory::class,
             PostManager::class => PostManagerFactory::class,
+            Service\UserManager::class => Service\Factory\UserManagerFactory::class,
         ],
     ],
+
 
 
     'view_manager' => [

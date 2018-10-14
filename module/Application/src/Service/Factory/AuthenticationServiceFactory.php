@@ -30,7 +30,7 @@ class AuthenticationServiceFactory
         $authAdapter = new Adapter(
             $dbAdapter,
             'user',
-            'username',
+            'email',
             'password',
             "SHA1(?)"
         );

@@ -1,16 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: localklaus
+ * Date: 07.10.18
+ * Time: 18:04
+ */
 
 namespace Application\Service\Factory;
 
 
-use Application\Service\AuthManager;
+use Application\Service\UserManager;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class AuthManagerFactory implements FactoryInterface
+class UserManagerFactory implements FactoryInterface
 {
 
     /**
@@ -25,10 +31,11 @@ class AuthManagerFactory implements FactoryInterface
      *     creating a service.
      * @throws ContainerException if any other error occurs
      */
-    public function __invoke(ContainerInterface $sm, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $authentication = $sm->get('authentication');
-        return new AuthManager($authentication);
+        $entityManager  = $container->get('doctrine.entitymanager.orm_default');
+        $viewRenderer   = $container->get('ViewRenderer');
 
+        return new UserManager($entityManager, $viewRenderer);
     }
 }

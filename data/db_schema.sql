@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_created` datetime DEFAULT NULL,
-  `pwd_reset_token` varchar(32) DEFAULT NULL,
+  `pwd_reset_token` varchar(128) DEFAULT NULL,
   `pwd_reset_token_creation_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;

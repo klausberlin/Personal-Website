@@ -33,6 +33,7 @@ class AuthController extends AbstractActionController
 
     /**
      * Authenticates user given email address and password credentials.
+     * @throws \Exception
      */
     public function indexAction()
     {
@@ -65,7 +66,7 @@ class AuthController extends AbstractActionController
                 $data = $form->getData();
 
                 // Perform login attempt.
-                $result = $this->authManager->lostandfound($data['username'], $data['password']);
+                $result = $this->authManager->lostandfound($data['email'], $data['password']);
 
                 // Check result.
                 if ($result->getCode() == Result::SUCCESS) {
@@ -103,6 +104,7 @@ class AuthController extends AbstractActionController
     public function logoutAction()
     {
         $this->authManager->logout();
+
 
         return $this->redirect()->toRoute('login');
     }

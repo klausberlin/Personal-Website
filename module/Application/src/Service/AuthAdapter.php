@@ -16,10 +16,10 @@ use Zend\Crypt\Password\Bcrypt;
 class AuthAdapter implements AdapterInterface
 {
     /**
-     * User username.
+     * User email.
      * @var string
      */
-    private $username;
+    private $email;
 
     /**
      * Password
@@ -42,11 +42,11 @@ class AuthAdapter implements AdapterInterface
     }
 
     /**
-     * Sets user username.
+     * Sets user email.
      */
-    public function setEmail($username)
+    public function setEmail($email)
     {
-        $this->email = $username;
+        $this->email = $email;
     }
 
     /**
@@ -63,7 +63,7 @@ class AuthAdapter implements AdapterInterface
     public function authenticate()
     {
         // Check the database if there is a user with such email.
-        $user = $this->entityManager->getRepository(User::class)->findOneBy($this->username);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy($this->email);
 
 
         // If there is no such user, return 'Identity Not Found' status.
@@ -93,7 +93,7 @@ class AuthAdapter implements AdapterInterface
             // saved in session for later use.
             return new Result(
                 Result::SUCCESS,
-                $this->username,
+                $this->email,
                 ['Authenticated successfully.']);
         }
 

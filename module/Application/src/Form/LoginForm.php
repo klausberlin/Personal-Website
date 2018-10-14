@@ -26,9 +26,9 @@ class LoginForm extends Form
     {
         $this->add([
            'type' => 'text',
-            'name' => 'username',
+            'name' => 'email',
             'options' => [
-                'label' => 'Username',
+                'label' => 'E-Mail',
             ],
         ]);
 
@@ -55,7 +55,7 @@ class LoginForm extends Form
         $this->setInputFilter($inputFilter);
 
         $inputFilter->add([
-           'name' => 'username',
+           'name' => 'email',
             'require' => true,
             'filters' => [
                 [
@@ -66,7 +66,7 @@ class LoginForm extends Form
                 [
                     'name'    => 'StringLength',
                     'options' => [
-                        'min' => 8,
+                        'min' => 1,
                         'max' => 64
                     ],
                 ],

@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?= $this->headTitle('Personal')->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headTitle('localklaus')->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?= $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -14,7 +14,7 @@
         ?>
 
         <?=
-        $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+        $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/.ico'])
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/extension/extension.css'))
 
@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Pawel Klaus</a>
+                    <a class="navbar-brand" href="/">localklaus</a>
                 </div>
                 <div>
                     <div class="collapse navbar-collapse" id="myNavbar">
