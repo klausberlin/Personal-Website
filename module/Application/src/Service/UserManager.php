@@ -174,7 +174,7 @@ class UserManager
 
 
         //todo set to env var
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('apikey');
 
         try {
 
