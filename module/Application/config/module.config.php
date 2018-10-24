@@ -55,7 +55,7 @@ return [
             'login' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/echome[/:action[/:id]]',
+                    'route'    => '/login[/:action[/:id]]',
                     'defaults' => [
                         'controller' => Controller\AuthController::class,
                         'action'     => 'index',

@@ -168,4 +168,11 @@ class AdminController extends AbstractActionController
 
         return new ViewModel();
     }
+
+    public function mainAction()
+    {
+
+        return new ViewModel();
+
+    }
 }

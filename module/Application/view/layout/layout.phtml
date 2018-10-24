@@ -17,58 +17,95 @@
         $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/.ico'])
             ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
             ->prependStylesheet($this->basePath('css/extension/extension.css'))
+            ->prependStylesheet($this->basePath('css/style.css'))
 
         ?>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+
         <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 
         <script src="/js/jquery-3.1.0.min.js"></script>
         <script src="/js/bootstrap.js"></script>
     </head>
+
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">localklaus</a>
+        <nav>
+            <section>
+                <p>
+                    Infinium
+                </p>
+            </section>
+            <section>
+                <hr>
+                <img src="img/timer/search.png">
+                <input placeholder="Search..."/>
+            </section>
+
+            <section>
+
+            </section>
+
+            <section>
+                <img src="img/timer/ava.png">
+            </section>
+
+            <section>
+                <img src="img/timer/arrow_top.png">
+                <img src="img/timer/arrow_bottom.png">
+            </section>
+        </nav>
+        <aside>
+            <section>
+                <img src="img/timer/aside_banner_nobtn.png">
+                <button><img src="img/timer/edit_cover_icon.png"><p>Edit cover</p></button>
+            </section>
+            <section>
+                <img src="img/timer/mini_avatar.png">
+                <a><img src = "img/timer/ava_settings.png"></a>
+            </section>
+            <section>
+                <p>
+                    Konstantin Boyko
+                </p>
+                <p>
+                    Kiev, Ukraine
+                </p>
+            </section>
+            <section>
+                <div>
+                    <img src="img/timer/coin_silver.png">
+                    <p>000001</p>
+                    <p>my coin</p>
                 </div>
                 <div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-
-                            <li <?= ( $this->url() === '/blog' ? 'class="active"' : '') ?> ><a href="<?= $this->url('blog')?>">Blog</a></li>
-
-                            <li <?= ( $this->url() === '/about' ? 'class="active"' : '') ?>> <a href="<?= $this->url('about')?>">Code</a></li>
-
-                            <?php if($this->identity()== true):?>
-                                <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
-                                <?php //print_r($this->identity());?>
-                            <?php endif;?>
-
-                            <?php if($this->identity()== true):?>
-                                <li <?= ( $this->url() === '/admin' ? 'class="active pull-right"' : 'class="pull-right"') ?>><a href="/admin">Admin</a></li>
-                                <?php // print_r($this->identity());?>
-                            <?php endif;?>
-
-                        </ul>
-                    </div>
+                    <img src="img/timer/coin_gold.png">
+                    <p>000012</p>
+                    <p>system coin</p>
                 </div>
-            </div>
-        </nav>
-
+            </section>
+            <section>
+                <ul>
+                    <li onclick="pageSwitcher('pageMyPage', 'navMyPage')" id="navMyPage"> <img src="img/timer/my_page.png">My page</li>
+                    <li class="active" id="navMessage"> <img src="img/timer/message.png">Message<img src="img/timer/notification.png"></li>
+                    <li> <img src="img/timer/my_market.png">My market</li>
+                    <li> <img src="img/timer/global_market.png">Global market</li>
+                    <li onclick="pageSwitcher('pageAuction' , 'navCoinsAuction')" id="navCoinsAuction"> <img src="img/timer/coins_auction.png">Coins auction</li>
+                    <li> <img src="friends.png">Friends<img src="img/timer/friends_notification.png"></li>
+                    <li> <img src="news.png">News</li>
+                    <li> <img src="settings.png">Settings</li>
+                </ul>
+            </section>
+        </aside>
         <div class="placeholder"></div>
-
-        <div class="container-fluid">
-            <?= $this->content ?>
-        </div>
-
+        <main id="pageAuction">
+<!--            <div class="container-fluid">-->
+                <?= $this->content ?>
+<!--            </div>-->
+        </main>
         <div class="footer">
             <hr>
             <div class="text-center">
