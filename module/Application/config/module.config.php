@@ -62,6 +62,16 @@ return [
                     ],
                 ],
             ],
+            'logout' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/logout[/:action[/:id]]',
+                    'defaults' => [
+                        'controller' => Controller\AuthController::class,
+                        'action'     => 'logout',
+                    ],
+                ],
+            ],
             'admin' => [
                 'type'    => Segment::class,
                 'options' => [

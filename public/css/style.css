@@ -786,3 +786,8 @@ main#pageMyPage section:nth-of-type(1) > div p {
 main#pageMyPage section:nth-of-type(1) > div p.active {
     border-bottom: 2px solid var(--colorAccent);
 }
+
+
+.register-link{
+    margin-top:20px;
+}

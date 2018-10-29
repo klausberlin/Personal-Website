@@ -105,12 +105,15 @@ class UserForm extends Form
         // Add "status" field
         $this->add([
             'type'  => 'select',
-            'name' => 'status',
+            'name' => 'country',
             'options' => [
-                'label' => 'Status',
+                'label' => 'Country',
                 'value_options' => [
-                    1 => 'Active',
-                    2 => 'Retired',
+                    1 => 'Germany',
+                    2 => 'Australia',
+                    3 => 'China',
+                    4 => 'Russia',
+                    5 => 'USA',
                 ]
             ],
         ]);
@@ -221,7 +224,7 @@ class UserForm extends Form
 
         // Add input for "status" field
         $inputFilter->add([
-            'name'     => 'status',
+            'name'     => 'country',
             'required' => true,
             'filters'  => [
                 ['name' => 'ToInt'],

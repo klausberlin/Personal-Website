@@ -3,13 +3,13 @@ $this->headTitle('Sign in');
 
 $form->get('email')->setAttributes([
     'class' => 'form-control',
-    'placeholder' => 'Hello Pawel, how are you?',
+    'placeholder' => 'E-Mail',
     'autofocus' => true
 ]);$this->headTitle('Sign in');
 
 $form->get('password')->setAttributes([
     'class' => 'form-control',
-    'placeholder' => 'Pawel, please insert your key',
+    'placeholder' => 'Password',
     'autofocus' => true
 ]);
 
@@ -17,24 +17,39 @@ $form->get('submit')->setAttributes(['class' => 'btn btn-primary']);
 
 ?>
 
-<?= $this->form()->openTag($form); ?>
-<div class="col-sm-offset-3 col-sm-12 col-md-6">
-<div class="form-group">
-    <?= $this->formLabel($form->get('email')); ?>
-    <?= $this->formElement($form->get('email')); ?>
-    <?= $this->formElementErrors($form->get('email')); ?>
-</div>
+<h3>Login at timer</h3>
 
-<div class="form-group">
-    <?= $this->formLabel($form->get('password')); ?>
-    <?= $this->formElement($form->get('password')); ?>
-    <?= $this->formElementErrors($form->get('password')); ?>
-</div>
+<div class="row">
+    <div class="col-xs-6">
+        <?= $this->form()->openTag($form); ?>
 
-<div class="form-group">
-    <?= $this->formElement($form->get('submit')); ?>
-</div>
-</div>
-<?= $this->form()->closeTag(); ?>
+            <div class="form-group">
+                <?= $this->formLabel($form->get('email')); ?>
+                <?= $this->formElement($form->get('email')); ?>
+                <?= $this->formElementErrors($form->get('email')); ?>
+            </div>
+
+            <div class="form-group">
+                <?= $this->formLabel($form->get('password')); ?>
+                <?= $this->formElement($form->get('password')); ?>
+                <?= $this->formElementErrors($form->get('password')); ?>
+            </div>
+
+            <div class="form-group">
+                <?= $this->formElement($form->get('submit')); ?>
+            </div>
+
+        <?= $this->form()->closeTag(); ?>
+
+        <a href="users/reset-password" class="btn btn-default" >Forgot my password?</a>
+
+    </div>
 
 
+    <div class="col-xs-12">
+
+        <a class="register-link" href="users/add" >Registration</a>
+
+    </div>
+
+</div>
