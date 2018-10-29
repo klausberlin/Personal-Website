@@ -33,7 +33,7 @@
 
 
         <div class="wrapper">
-            <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+            <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
                 <!--
 
@@ -50,17 +50,19 @@
                     </div>
 
                     <ul class="nav">
-                        
+
                         <li <?= ( $this->url() === '/blog' ? 'class="active"' : '') ?> ><a href="<?= $this->url('blog')?>">Blog</a></li>
 
                         <li <?= ( $this->url() === '/about' ? 'class="active"' : '') ?>> <a href="<?= $this->url('about')?>">Code</a></li>
 
                         <?php if($this->identity()== true):?>
+
                             <li class="pull-right"><a href="<?= $this->url('login',['action' => 'logout'])?>">Logout</a></li>
 
                         <?php endif;?>
 
                         <?php if($this->identity()== true):?>
+
                             <li <?= ( $this->url() === '/admin' ? 'class="active pull-right"' : 'class="pull-right"') ?>><a href="/admin">Admin</a></li>
 
                         <?php endif;?>
@@ -70,6 +72,7 @@
             </div>
 
             <div class="main-panel">
+
                 <nav class="navbar navbar-default navbar-fixed">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -110,7 +113,6 @@
                     </div>
                 </nav>
 
-
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
@@ -118,7 +120,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <footer class="footer">
                     <div class="container-fluid">
@@ -148,7 +149,7 @@
         <!--  Notifications Plugin    -->
         <script src="/assets/js/bootstrap-notify.js"></script>
 
-        <!--  Google Maps Plugin
+<!--  Google Maps Plugin
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 -->
         <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->

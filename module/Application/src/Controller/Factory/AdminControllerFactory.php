@@ -34,8 +34,8 @@ class AdminControllerFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $authentication = $container->get('authentication');
-        $entityManager = $container->get('doctrine.entitymanager.orm_default');
-        $postManager = $container->get(PostManager::class);
+        $entityManager  = $container->get('doctrine.entitymanager.orm_default');
+        $postManager    = $container->get(PostManager::class);
 
         return new AdminController($authentication, $entityManager, $postManager);
     }

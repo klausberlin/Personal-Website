@@ -34,12 +34,23 @@ class AdminController extends AbstractActionController
     */
     private $postManager;
 
+    /**
+     * AdminController constructor.
+     * @param $authentication
+     * @param $entityManager
+     * @param $postManager
+     */
     public function __construct($authentication, $entityManager, $postManager)
     {
         $this->authentication = $authentication;
-        $this->entityManager = $entityManager;
-        $this->postManager = $postManager;
+        $this->entityManager  = $entityManager;
+        $this->postManager    = $postManager;
     }
+
+    /**
+     * @param MvcEvent $e
+     * @return mixed
+     */
     public function onDispatch(MvcEvent $e)
     {
         if($this->authentication->hasIdentity() != true)
@@ -49,6 +60,9 @@ class AdminController extends AbstractActionController
         return parent::onDispatch($e);
     }
 
+    /**
+     * @return ViewModel
+     */
     public function indexAction()
     {
         //$postId = $this->params()->fromRoute('id', -1);
@@ -61,13 +75,15 @@ class AdminController extends AbstractActionController
         ]);
     }
 
+    /**
+     * @return \Zend\Http\Response|ViewModel
+     */
     public function addAction()
     {
         //instantiate the Blog form to create a new blogpost
         $form = new BlogForm();
 
         //get the repository(entity) with the entityManager
-
         if($this->getRequest()->isPost()){
 
             //get the params from the form until the from send a post request
@@ -83,13 +99,15 @@ class AdminController extends AbstractActionController
                 return $this->redirect()->toRoute('admin',['action' => 'index']);
             }
 
-
         }
         return new ViewModel([
             'form' => $form,
         ]);
     }
 
+    /**
+     * @return void|\Zend\Http\Response|ViewModel
+     */
     public function editAction()
     {
         $form = new BlogForm();
