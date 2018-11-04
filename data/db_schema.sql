@@ -12,15 +12,13 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` smallint(11) unsigned NOT NULL AUTO_INCREMENT,
-  `registered` datetime DEFAULT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `registered` datetime,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_created` datetime DEFAULT NULL,
-  `pwd_reset_token` varchar(128) DEFAULT NULL,
-  `pwd_reset_token_creation_date` datetime DEFAULT NULL,
-  `user_time` VARCHAR DEFAULT NULL,
-
-
+  `date_created` datetime,
+  `pwd_reset_token` varchar(128),
+  `pwd_reset_token_creation_date` datetime,
+  `user_time` VARCHAR(128),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
@@ -35,4 +33,4 @@ CREATE TABLE IF NOT EXISTS `post` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 
-INSERT INTO `user` (`id`,`registered`,`username`,`password`) VALUES (1,NOW(),'pawelklaus', sha1('test'));
+INSERT INTO `user` (`id`,`registered`,`email`,`password`) VALUES (1,NOW(),'test', sha1('test'));
