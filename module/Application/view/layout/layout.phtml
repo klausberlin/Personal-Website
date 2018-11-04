@@ -45,7 +45,7 @@
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="/" class="simple-text">
-                            Fee Timer
+                            localklaus
                         </a>
                     </div>
 
@@ -56,7 +56,6 @@
                         <li <?= ( $this->url() === '/blog' ? 'class="active"' : '') ?> ><a href="<?= $this->url('blog')?>">Blog</a></li>
 
                         <?php if($this->identity()== true):?>
-
 
 
                         <?php endif;?>
@@ -89,19 +88,19 @@
                                 </li>
                             </ul>
 
-                            <?php if($this->identity()== false):?>
+                            <?php //if($this->identity() == false):?>
 
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="/login">
-                                            Account
-                                        </a>
-                                    </li>
-                                </ul>
+<!--                                <ul class="nav navbar-nav navbar-right">-->
+<!--                                    <li>-->
+<!--                                        <a href="/login">-->
+<!--                                            Account-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
 
-                            <?php endif;?>
+                            <?php //endif;?>
 
-                            <?php if($this->identity()== true):?>
+                            <?php if($this->identity() == true):?>
 
                                 <ul class="nav navbar-nav navbar-right">
                                     <li>
@@ -119,13 +118,12 @@
                                     </li>
                                 </ul>
 
-
                             <?php endif;?>
                         </div>
                     </div>
                 </nav>
 
-                <div class="content">
+                <div class="content" style="padding-bottom: 0px;padding-top: 0px;">
                     <div class="container-fluid">
                         <div class="row">
                             <?= $this->content ?>
@@ -135,18 +133,8 @@
 
                 <footer class="footer">
                     <div class="container-fluid">
-                        <nav class="pull-left">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        Home
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </nav>
                         <p class="copyright pull-right">
-                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Fee Timer</a>, for a better world
+                            &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">localklaus</a>, for a better world
                         </p>
                     </div>
                 </footer>

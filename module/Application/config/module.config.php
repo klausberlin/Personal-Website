@@ -52,10 +52,10 @@ return [
                     ],
                 ],
             ],
-            'login' => [
+            'loginaspawel' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/login[/:action[/:id]]',
+                    'route'    => '/loginaspawel[/:action[/:id]]',
                     'defaults' => [
                         'controller' => Controller\AuthController::class,
                         'action'     => 'index',
