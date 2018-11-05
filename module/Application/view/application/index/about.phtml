@@ -3,9 +3,9 @@
     <div class="cleaner"></div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row flex-row">
         <?php foreach($myRepos as $repos):?>
-            <div class='col-xs-12 col-sm-4'>
+            <div class='col-xs-12 col-sm-4 flex-col'>
                 <div class="panel panel-default">
                     <div class="page-header">
                         <h3 class="text-center" ><a href="<?= $repos->html_url ?>" target="_blank" style="color: #E52F26"><?= $repos->name?></a></h3>

@@ -284,3 +284,17 @@ START - blog/index
 .timeline-body > p + p {
     margin-top: 5px;
 }
+
+.flex-row{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-col{
+    display: flex;
+    flex-direction:column;
+    align-self:stretch;
+    flex: 1 1 auto;
+}
