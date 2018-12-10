@@ -42,16 +42,16 @@ return [
                     ],
                 ],
             ],
-            'about' => [
-                'type'    => Literal::class,
-                'options' => [
-                    'route'    => '/about',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'about',
-                    ],
-                ],
-            ],
+//            'about' => [
+//                'type'    => Literal::class,
+//                'options' => [
+//                    'route'    => '/about',
+//                    'defaults' => [
+//                        'controller' => Controller\IndexController::class,
+//                        'action'     => 'about',
+//                    ],
+//                ],
+//            ],
             'loginaspawel' => [
                 'type'    => Segment::class,
                 'options' => [
