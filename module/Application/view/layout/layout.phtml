@@ -52,8 +52,6 @@
 
                     <ul class="nav">
 
-                        <li <?= ( $this->url() === '/about' ? 'class="active"' : '') ?>> <a href="<?= $this->url('about')?>">About</a></li>
-
                         <li <?= ( $this->url() === '/blog' ? 'class="active"' : '') ?> ><a href="<?= $this->url('blog')?>">Blog</a></li>
 
                         <?php if($this->identity()== true):?>
